@@ -1,3 +1,7 @@
+/*
+Source: https://angularfirebase.com/lessons/image-thumbnail-resizer-cloud-function/
+*/
+
 import * as functions from 'firebase-functions';
 
 import { Storage } from '@google-cloud/storage';
