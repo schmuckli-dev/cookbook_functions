@@ -44,6 +44,13 @@ export const generateThumbs = functions.storage
       const thumbName = `thumb@${size}_${fileName}`;
       const thumbPath = join(workingDir, thumbName);
 
+      //Delete the file first
+      try {
+        await bucket.file(join(bucketDir, thumbName)).delete();
+      } catch (e){
+        console.error("File cannot be deleted: " + e.message);
+      }
+
       // Resize source image
       await sharp(tmpFilePath)
         .resize(size, size)
